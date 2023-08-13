@@ -1,5 +1,7 @@
 # Membuat Mini ecommerce dengan ExpressJS dan EJS
 
+![Mini Ecommerce](/assets/homepage.png)
+
 ## Deskripsi
 
 Kita akan membuat sebuat mini e-commerce dengan nodejs, express, ejs, sequelize, dan postgresql. Adapun halaman yang akan kita buat adalah halaman home yang akan menampilkan seluruh produk dengan button buy, dan halaman admin untuk menambahkan prduk baru. Jika user klik buy, maka stok akan berkurang, jika stok habis, maka produk tidak akan muncul di halaman home.
