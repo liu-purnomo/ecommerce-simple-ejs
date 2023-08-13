@@ -1,0 +1,18 @@
+{
+  "overrides": [
+    {
+      "files": "*.html",
+      "options": {
+        "parser": "html",
+        "disabled": true
+      }
+    },
+    {
+      "files": "*.ejs",
+      "options": {
+        "parser": "ejs",
+        "disabled": true
+      }
+    }
+  ]
+}

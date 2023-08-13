@@ -1,0 +1,41 @@
+<%- include('./partials/header') %>
+<%- include('./partials/navbar') %>
+<div class="container mt-4 mb-4">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            
+            <% if (typeof errors !== 'undefined' && errors) { %>
+                <% errors.split(',').forEach(error => { %>
+                    <%- include('./partials/alert', { type: 'danger', title: 'Error!', message: error }) %>
+                <% }) %>
+            <% } %>
+
+            <form action="/add-product" method="post">
+                <div class="mb-3">
+                    <label class="form-label">Name Product :</label>
+                    <input name="name" type="text" class="form-control" placeholder="input Name Product here">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Product Category:</label>
+                    <input name="category" type="text" class="form-control" placeholder="input Name Category here">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Price :</label>
+                    <input name="price" type="number" class="form-control" placeholder="input Price here">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Stock :</label>
+                    <input name="stock" type="number" class="form-control" placeholder="input Stock here">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Image URL :</label>
+                    <input name="image" type="text" class="form-control" placeholder="input Image URL here">
+                </div>
+                <div class="mt-3">
+                    <button class="btn btn-success col-sm-12" type="submit">Create New Product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include('./partials/footer') %>

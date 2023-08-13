@@ -1,0 +1,63 @@
+<%- include('./partials/header') %>
+<%- include('./partials/navbar') %>
+
+<div class="container mt-4 mb-4">
+    <div class="row col-md-6 mx-auto">
+
+        <% if (typeof errors !== 'undefined' && errors) { %>
+            <% errors.split(',').forEach(error => { %>
+                <%- include('./partials/alert', { type: 'danger', title: 'Error!', message: error }) %>
+            <% }) %>
+        <% } %>
+        
+        <% if (typeof success !== 'undefined' && success) { %>
+            <%- include('./partials/alert', { type: 'success', title: 'Success!', message: success }) %>
+        <% } %>
+        
+
+        <table class="table">
+            <thead>
+                <th>Image</th>
+                <th>Product Detail</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+                <% products.forEach(item=> { %>
+                    <tr>
+                        <td>
+                            <img src="<%= item.image %>" alt="" width="100px" height="100px">
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>
+                                        Product Name
+                                    </td>
+                                    <td>
+                                        : <%= item.name %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Price</td>
+                                    <td>: Rp. <%= item.price.toLocaleString("id-ID") %></td>
+                                </tr>
+                                <tr>
+                                    <td>Category</td>
+                                    <td>: <%= item.Category.name %></td>
+                                </tr>
+                                <tr>
+                                    <td>Stock</td>
+                                    <td>: <%= item.stock %></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <a class="btn btn-danger" href="/buy/<%= item.id %>"><i class="bi bi-trash"></i> Buy Product </a>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</div>
+<%- include('./partials/footer') %>
